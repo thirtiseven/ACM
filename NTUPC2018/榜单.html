@@ -1,0 +1,827 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        NTUPC - Virtual Judge
+    </title>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="keywords" content="Online Judge, vjudge, OJ, Virtual Judge, Replay Contest, ICPC, OnlineJudge, JudgeOnline, Coding, Algorithm, ç«èµ, ç®æ³, POJ, ZOJ, UVALive, SGU, URAL, HUST, SPOJ, HDU, HYSBZ, UVA, CodeForces, Z-Trening, Aizu, LightOJ, UESTC, NBUT, FZU, CSU, SCU, ACdream, CodeChef, CF::Gym, OpenJudge, Kattis, HihoCoder, HIT, HRBUST, EIJudge, AtCoder, HackerRank, 51Nod" />
+<meta name="author" content="chaoshxxu" />
+<meta name="robots" content="index, follow" />
+
+<link rel="shortcut icon" href="/static/images/logo.ico" />
+<link rel="stylesheet" type="text/css" href="/static/bundle/vendor.aded91a27e80a7a353f4.css" />
+<link rel="stylesheet" type="text/css" href="/static/bundle/app.4dd1d922312fb8641a4c.css" />
+
+
+    <meta property="og:url" content="https://vjudge.net/contest/226809"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="NTUPC - Virtual Judge"/>
+    <meta property="og:description" content="Contest [NTUPC] in Virtual Judge"/>
+    <meta property="og:image" content="https://vjudge.net//static/images/logo.ico"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-dark bg-inverse">
+    <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive"></button>
+    <div class="collapse navbar-toggleable-sm" id="navbarResponsive">
+        <a class="navbar-brand" href="/">
+            <img src="/static/images/logo.ico" height="30"/>
+            Home
+        </a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item" id="nav-problem">
+                <a class="nav-link" href="/problem">Problem</a>
+            </li>
+            <li class="nav-item" id="nav-status">
+                <a class="nav-link" href="/status">Status</a>
+            </li>
+            <li class="nav-item" id="nav-contest">
+                <a class="nav-link" href="/contest">Contest</a>
+            </li>
+            <li class="nav-item" id="nav-user">
+                <a class="nav-link" href="/user">User</a>
+            </li>
+            <li class="nav-item" id="nav-group">
+                <a class="nav-link" href="/group">Group</a>
+            </li>
+            <li class="nav-item" id="nav-comment">
+                <a class="nav-link" href="/comment">Forum</a>
+            </li>
+            <li class="nav-item" id="nav-article">
+                <a class="nav-link" href="/article">Article</a>
+            </li>
+            
+            
+                
+                    <li class="nav-item float-xs-right">
+                        <a class="nav-link logout" href="javascript:void(0)">Logout</a>
+                    </li>
+                    <li class="nav-item dropdown float-xs-right">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                           id="userNameDropdown" data-toggle="dropdown">thirtiseven</a>
+                        <div class="dropdown-menu dropdown-menu-right user-dropdown">
+                            <a class="dropdown-item"
+                               href="/user/thirtiseven">Profile</a>
+                            <a class="dropdown-item update-profile" href="javascript:void(0)">Update</a>
+                            <a class="dropdown-item message" href="/message">Message</a>
+                        </div>
+                    </li>
+                
+                
+            
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container" style="margin-top: 30px;">
+    
+        <div class="row alert alert-info" id="contest-announcement" style="display: none;"></div>
+    
+
+    <div class="row card" id="time-info">
+        <div class="row">
+            <div class="col-xs-3 text-xs-left">
+                <b>Begin:</b>
+                <span class="timestamp">1526450400000</span>
+            </div>
+            <div class="col-xs-6 text-xs-center">
+                <h3>
+                    
+                    
+                    NTUPC
+                </h3>
+            </div>
+            <div class="col-xs-3 text-xs-right">
+                <b>End:</b>
+                <span class="timestamp">1526464800000</span>
+            </div>
+        </div>
+        <div class="row" id="contest-time-slider-container">
+            <input id="contest-time"
+                   type="text"
+                   data-slider-id='contest-time-slider'
+                   style="display: none;"/>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 text-xs-left" id="info-elapsed">
+                <b>Elapsed:</b>
+                <span class="elapsed" id="span-elapsed"></span>
+            </div>
+            <div class="col-xs-6 text-xs-center">
+                <span id="info-running"></span>
+            </div>
+            <div class="col-xs-3 text-xs-right" id="info-remaining">
+                <b>Remaining:</b>
+                <span class="remaining" id="span-remaining"></span>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="row">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" id="contest-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#overview" section="overview"
+                       role="tab">Overview</a>
+                </li>
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#problem" section="problem" role="tab">Problem</a>
+                    </li>
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#status" section="status" role="tab">Status</a>
+                    </li>
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#rank" section="rank" role="tab">
+                            Rank <i class='fa fa-refresh fa-spin'></i>
+                        </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#discuss" section="discuss" role="tab"
+                       rel="#discuss" data-disqus-identifier="contest/226809">Discuss</a>
+                </li>
+
+                <li class="text-xs-right">
+                    <div class="btn-group" role="group">
+                        
+                            <button type="button" class="btn btn-secondary" id="btn-setting">Setting</button>
+                        
+                        <button type="button" class="btn btn-secondary" id="btn-favorite"><i></i>Favorite</button>
+                        
+                            <button type="button" class="btn btn-secondary" id="btn-clone">Clone</button>
+                        
+                        
+                            <button type="button" class="btn btn-secondary" id="btn-update">Update</button>
+                            <button type="button" class="btn btn-secondary" id="btn-delete">Delete</button>
+                        
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane in active" id="overview" role="tabpanel">
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="contest_overview" class="container">
+
+    
+        <div class="row">
+            <table id="contest-problems" class="table table-striped table-bordered table-responsive" cellspacing="0"
+                   width="100%">
+                <thead>
+                <tr>
+                    <th class="my-stat"></th>
+                    <th class="all-stat">Stat</th>
+                    <th class="prob-num">#</th>
+                    
+                    
+                        <th>Origin</th>
+                    
+                    <th class="prob-title text-xl-left">Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">A</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/1443991/origin"
+                                   target="_blank">
+                                        CodeForces 957E
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/A">
+                                Airplanes
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">B</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/973360/origin"
+                                   target="_blank">
+                                        Gym 101466F
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/B">
+                                Hard Geometry Problem
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">C</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/16378/origin"
+                                   target="_blank">
+                                        POJ 1088
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/C">
+                                Sliders
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">D</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/17880/origin"
+                                   target="_blank">
+                                        HDU 1303
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/D">
+                                Double and Double
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">E</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/99903/origin"
+                                   target="_blank">
+                                        CodeForces 500B
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/E">
+                                Pretty Permutation
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">F</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/127062/origin"
+                                   target="_blank">
+                                        CodeForces 520B
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/F">
+                                Strange Device
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">G</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/1538817/origin"
+                                   target="_blank">
+                                        CodeForces 975C
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/G">
+                                Thousand Arrows
+                            </a>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td class="my-stat"></td>
+                        <td class="all-stat"></td>
+                        <td class="prob-num text-xs-center">H</td>
+                        
+                        
+                            <td class="prob-origin text-xs-center">
+                                <a href="/problem/271417/origin"
+                                   target="_blank">
+                                        HDU 5538
+                                </a>
+                            </td>
+                        
+                        <td class="prob-title">
+                            <a href="#problem/H">
+                                Minecraft
+                            </a>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>
+    
+
+    <div class="row text-xs-right" id="contest-manager">
+        <div class="fb-like"
+             data-href="https://vjudge.net/contest/226809"
+             data-layout="button_count"
+             data-action="like"
+             data-size="small"
+             data-show-faces="true"
+             data-share="true"></div>
+    </div>
+
+    <div class="row card" id="contest-description" style="display: none"></div>
+
+</div>
+
+                </div>
+                
+                    <div class="tab-pane" id="problem" role="tabpanel">
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="contest_problem" class="container">
+    <div class="row">
+        <div class="col-md-3 container" id="prob-left-panel">
+            <ul class="nav nav-pills row" id="problem-nav">
+                
+                    <li class="nav-item">
+                        <a num="A"
+                           class="nav-link"
+                           href="#problem/A">A</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a num="B"
+                           class="nav-link"
+                           href="#problem/B">B</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a num="C"
+                           class="nav-link"
+                           href="#problem/C">C</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a num="D"
+                           class="nav-link"
+                           href="#problem/D">D</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a num="E"
+                           class="nav-link"
+                           href="#problem/E">E</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a num="F"
+                           class="nav-link"
+                           href="#problem/F">F</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a num="G"
+                           class="nav-link"
+                           href="#problem/G">G</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a num="H"
+                           class="nav-link"
+                           href="#problem/H">H</a>
+                    </li>
+                
+            </ul>
+
+            <div class="alert alert-danger row" role="alert" id="prob-alert" style="display: none"></div>
+
+            <div id="prob-operation" class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-primary" id="problem-submit">Submit</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="#status//A/0/CPP" class="btn btn-secondary" id="btn-contest-status">Status</a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="#status/Isun/A/0/CPP" class="btn btn-secondary" id="btn-contest-my-status">My
+                                Status</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prob-properties" class="row">
+                <div class="container">
+                    <dl class="card row"></dl>
+                </div>
+            </div>
+
+            <div id="prob-descriptions" class="row">
+                <span>Choose a description for participants:</span>
+                <div class="list-group" id="prob-descs"></div>
+            </div>
+        </div>
+        <div class="col-md-9 container" id="prob-right-panel">
+            <div class="row">
+                <div id="prob-title-contest">
+                    <h2 id="problem-title"></h2>
+                    <span class="origin">
+                        <a id="problem-origin" href="#" target="_blank"></a>
+                    </span>
+                </div>
+            </div>
+            <div class="row" id="frame-description-container"></div>
+        </div>
+    </div>
+
+</div>
+
+                    </div>
+                
+                
+                    <div class="tab-pane" id="status" role="tabpanel">
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="contest_status" class="container">
+    <div class="row" id="right-panel">
+        <table id="listStatus" class="table table-striped table-bordered table-responsive" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th class="run-id hidden-lg-down">Run ID</th>
+                <th class="username">
+                    Username<br/>
+                    <input type="text" id="un" name="un" class="search_text" style="width:100%"/>
+                </th>
+                <th class="num">
+                    Prob<br/>
+                    <select id="contest-status-num" name="num" class="custom-select">
+                        <option value="-">All</option>
+                    </select>
+                </th>
+                <th class="status">
+                    Result
+                    <br/>
+                    <select id="res" name="res" class="custom-select">
+                        <option value="0">All</option>
+                        <option value="1">Accepted</option>
+                        <option value="2">Presentation Error</option>
+                        <option value="3">Wrong Answer</option>
+                        <option value="4">Time Limit Exceed</option>
+                        <option value="5">Memory Limit Exceed</option>
+                        <option value="6">Output Limit Exceed</option>
+                        <option value="7">Runtime Error</option>
+                        <option value="8">Compile Error</option>
+                        <option value="9">Unknown Error</option>
+                        <option value="10">Submit Error</option>
+                        <option value="11">Queuing && Judging</option>
+                    </select>
+                </th>
+                <th class="runtime">Time<br>(ms)</th>
+                <th class="memory">Mem<br>(MB)</th>
+                <th class="length hidden-lg-down">Length</th>
+                <th class="language">
+                    Lang
+                    <br/>
+                    <select name="language" id="language" class="custom-select">
+                        <option value="">All</option>
+                        <option value="CPP">C++</option>
+                        <option value="C">C</option>
+                        <option value="JAVA">Java</option>
+                        <option value="PASCAL">Pascal</option>
+                        <option value="PYTHON">Python</option>
+                        <option value="CSHARP">C#</option>
+                        <option value="RUBY">Ruby</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </th>
+                <th class="date">Submit Time</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <input type="button" class="btn btn-secondary btn-md" id="rejudge-all" value="Rejudge"
+               style="display: none"/>
+        <input type="button" class="btn btn-secondary btn-md" id="reset" value="Reset" style="display: none"/>
+        <input type="button" class="btn btn-secondary btn-md" id="filter" value="Filter" style="display: none"/>
+    </div>
+</div>
+
+                    </div>
+                
+                
+                    <div class="tab-pane" id="rank" role="tabpanel">
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="contest_rank">
+
+    <table id="contest-rank-table" cellspacing="1"></table>
+    <table id="contest-rank-table-export"></table>
+
+    <div class="rank_tool">
+        <img src="/static/images/find_me.png" id="img_find_me" title="Find me" height="55"/>
+    </div>
+
+</div>
+
+                    </div>
+                
+                <div class="tab-pane" id="discuss" role="tabpanel">
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="contest_discuss"></div>
+
+                </div>
+            </div>
+
+            <div class="rank_tool">
+                <span id="img_go_top" title="Go to top"></span>
+            </div>
+        </div>
+    
+    
+
+</div>
+
+<textarea style="display: none" name="dataJson">{"id":226809,"title":"NTUPC","type":0,"openness":2,"authStatus":3,"begin":1526450400000,"end":1526464800000,"createTime":1525321684000,"started":true,"ended":true,"managerId":178266,"managerName":"thirtiseven","fav":true,"description":{"format":"MD","content":"比赛为个人赛，时间四个小时，采用标准 ACM/ICPC 规则，可以重复提交代码直至正确，每次提交错误将产生20分钟罚时，最后按照选手解决题目的数量排名，如果解决数量相同，按照选手的罚时排名，罚时越低，排名越前。\n\n选手需至少提前30分钟在教室签到和分配考位，并提前30分钟入场。比赛15分钟前停止入场。\n\n选手可以携带任意纸质资料，参考书，辞典，草稿纸，笔，饮料和食物。现场不提供文具和草稿纸。不得携带手机，电脑，U盘，键盘，鼠标，移动硬盘，计算器等具有存储功能或上网功能的电子产品。比赛时不得访问除了比赛平台以外的一切网站，不得通过任何方式与外界交流，不得使用局域网与其他选手交流，一经发现，作违规论处。\n\n"},"announcement":"请注意，题目的难度是无序的。\n如有问题，请举手示意。\n在Rank上可以看到当前的榜单。","problems":[{"pid":1443991,"title":"Airplanes","oj":"CodeForces","probNum":"957E","num":"A","publicDescId":99318,"publicDescVersion":1526396199000,"allDescBriefs":[{"id":99318,"updateDate":"2018-05-15","version":1526396199000,"author":"thirtiseven","remarks":"Initialization."},{"id":96978,"updateDate":"2018-05-10","version":1525944682000,"author":"0","remarks":"Initialization."}],"properties":{"Time limit":"1000 ms","Memory limit":"262144 kB","Source":"Codeforces Round #472 (rated, Div. 2, based on VK Cup 2018 Round 2)","Editorial":"\u003ca href\u003d\"http://codeforces.com/blog/entry/58530\" title\u003d\"VK Cup 2018 Round 2 and Codeforces Round 472\" target\u003d\"_blank\"\u003eAnnouncement\u003c/a\u003e\n\u003ca href\u003d\"http://codeforces.com/blog/entry/58544\" title\u003d\"VK Cup 2018 Round 2 and Codeforces Round #472 Editorial\" target\u003d\"_blank\"\u003eTutorial\u003c/a\u003e"},"weight":1},{"pid":973360,"title":"Hard Geometry Problem","oj":"Gym","probNum":"101466F","num":"B","publicDescId":99321,"publicDescVersion":1526395813000,"allDescBriefs":[{"id":99321,"updateDate":"2018-05-15","version":1526395813000,"author":"thirtiseven","remarks":"Initialization."},{"id":88165,"updateDate":"2018-05-15","version":1526394402000,"author":"0","remarks":"Initialization."}],"properties":{"Time limit":"3000 ms","Memory limit":"524288 kB","OS":"Windows","Source":"2017 ACM-ICPC, Universidad Nacional de Colombia Programming Contest"},"weight":1},{"pid":16378,"title":"Sliders","oj":"POJ","probNum":"1088","num":"C","publicDescId":98941,"publicDescVersion":1525322266000,"allDescBriefs":[{"id":8590,"updateDate":"2018-05-15","version":1526365233000,"author":"0","remarks":"Initialization."},{"id":98941,"updateDate":"2018-05-03","version":1525322266000,"author":"thirtiseven","remarks":"Initialization."}],"properties":{"Time limit":"1000 ms","Memory limit":"65536 kB","OS":"Linux","Source":"\n      \u003cdiv class\u003d\"ptx\" lang\u003d\"en-US\"\u003e\n       \u003ca href\u003d\"http://poj.org/searchproblem?field\u003dsource\u0026amp;key\u003dSHTSC+2002\"\u003eSHTSC 2002\u003c/a\u003e\n      \u003c/div\u003e"},"weight":1},{"pid":17880,"title":"Double and Double","oj":"HDU","probNum":"1303","num":"D","publicDescId":10104,"publicDescVersion":1526394397000,"allDescBriefs":[{"id":10104,"updateDate":"2018-05-15","version":1526394397000,"author":"0","remarks":"Initialization."}],"properties":{"Time limit":"1000 ms","Memory limit":"32768 kB","OS":"Windows","Source":"\u003cdiv class\u003d\"panel_content\"\u003e \n \u003ca href\u003d\"http://acm.hdu.edu.cn/search.php?field\u003dproblem\u0026amp;key\u003dMid-Central+USA+2003\u0026amp;source\u003d1\u0026amp;searchmode\u003dsource\"\u003e Mid-Central USA 2003 \u003c/a\u003e \n\u003c/div\u003e"},"weight":1},{"pid":99903,"title":"Pretty Permutation","oj":"CodeForces","probNum":"500B","num":"E","publicDescId":99322,"publicDescVersion":1525960675000,"allDescBriefs":[{"id":99322,"updateDate":"2018-05-10","version":1525960675000,"author":"thirtiseven","remarks":"Initialization."},{"id":47777,"updateDate":"2018-05-09","version":1525881524000,"author":"0","remarks":"Initialization."}],"properties":{"Time limit":"2000 ms","Memory limit":"262144 kB","Source":"Good Bye 2014","Tags":"dfs and similar\ndsu\ngraphs\ngreedy\nmath\nsortings","Editorial":"\u003ca href\u003d\"http://codeforces.com/blog/entry/15465\" title\u003d\"Good Bye 2014\" target\u003d\"_blank\"\u003eAnnouncement\u003c/a\u003e\n\u003ca href\u003d\"http://codeforces.com/blog/entry/15488\" title\u003d\"Tutorial 1\" target\u003d\"_blank\"\u003eTutorial #1\u003c/a\u003e\n\u003ca href\u003d\"http://codeforces.com/blog/entry/15513\" title\u003d\"Tutorial 2\" target\u003d\"_blank\"\u003eTutorial #2\u003c/a\u003e"},"weight":1},{"pid":127062,"title":"Strange Device","oj":"CodeForces","probNum":"520B","num":"F","publicDescId":99487,"publicDescVersion":1526394775000,"allDescBriefs":[{"id":99487,"updateDate":"2018-05-15","version":1526394775000,"author":"thirtiseven","remarks":"Initialization."},{"id":49018,"updateDate":"2018-05-11","version":1526051881000,"author":"0","remarks":"Initialization."},{"id":96086,"updateDate":"2018-03-07","version":1520416985000,"author":"nattapatboon","remarks":"ภาษาไทย"},{"id":81663,"updateDate":"2017-06-12","version":1497253572000,"author":"ChineseOJ","remarks":"Chinese OJ"},{"id":75124,"updateDate":"2017-01-13","version":1484314402000,"author":"tchr","remarks":"Initialization."}],"properties":{"Time limit":"2000 ms","Memory limit":"262144 kB","Source":"Codeforces Round #295 (Div. 2)","Tags":"dfs and similar\ngraphs\ngreedy\nimplementation\nmath\nshortest paths","Editorial":"\u003ca href\u003d\"http://codeforces.com/blog/entry/16707\" title\u003d\"Codeforces Round #295\" target\u003d\"_blank\"\u003eAnnouncement\u003c/a\u003e\n\u003ca href\u003d\"http://codeforces.com/blog/entry/16736\" title\u003d\"Codeforces Round #295 Editorial (now with bonuses!)\" target\u003d\"_blank\"\u003eTutorial\u003c/a\u003e"},"weight":1},{"pid":1538817,"title":"Thousand Arrows","oj":"CodeForces","probNum":"975C","num":"G","publicDescId":98945,"publicDescVersion":1526395087000,"allDescBriefs":[{"id":98945,"updateDate":"2018-05-15","version":1526395087000,"author":"thirtiseven","remarks":"Initialization."},{"id":98899,"updateDate":"2018-05-10","version":1525944682000,"author":"0","remarks":"Initialization."}],"properties":{"Time limit":"2000 ms","Memory limit":"262144 kB","Source":"Codeforces Round #478 (Div. 2)","Tags":"binary search","Editorial":"\u003ca href\u003d\"http://codeforces.com/blog/entry/59186\" title\u003d\"Codeforces Round #478 (Div. 2)\" target\u003d\"_blank\"\u003eAnnouncement\u003c/a\u003e\n\u003ca href\u003d\"http://codeforces.com/blog/entry/59202\" title\u003d\"Codeforces Round #478 (Div. 2), Editorial\" target\u003d\"_blank\"\u003eTutorial\u003c/a\u003e"},"weight":1},{"pid":271417,"title":"Minecraft","oj":"HDU","probNum":"5538","num":"H","publicDescId":57622,"publicDescVersion":1525924726000,"allDescBriefs":[{"id":57622,"updateDate":"2018-05-10","version":1525924726000,"author":"0","remarks":"Initialization."}],"properties":{"Time limit":"1000 ms","Memory limit":"262144 kB","OS":"Windows","Source":"\u003cdiv class\u003d\"panel_content\"\u003e \n \u003ca href\u003d\"http://acm.hdu.edu.cn/search.php?field\u003dproblem\u0026amp;key\u003d2015ACM%2FICPC%D1%C7%D6%DE%C7%F8%B3%A4%B4%BA%D5%BE-%D6%D8%CF%D6%C8%FC%A3%A8%B8%D0%D0%BB%B6%AB%B1%B1%CA%A6%B4%F3%A3%A9\u0026amp;source\u003d1\u0026amp;searchmode\u003dsource\"\u003e 2015ACM/ICPC亚洲区长春站-重现赛（感谢东北师大） \u003c/a\u003e \n\u003c/div\u003e"},"weight":1}],"problemsHash":"8b89bfbd076e5d20dde239f3f95f1569","privatePeerContestIds":[],"enableTimeMachine":true,"sumTime":true,"penalty":1200,"partialScore":false,"customizedWeight":false,"showPeers":true}</textarea>
+<script type="text/javascript">moduleName = "./contest/view/view";</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="body-footer">
+    <div style="margin-bottom: 8px">
+        <a href="https://t.me/joinchat/Erw7nRGwXN3iSCoKguVW3w" target="_blank">
+            <img src="/static/images/social/telegram.svg"/>
+        </a>
+        <a href="https://www.facebook.com/virtualjudge/" target="_blank">
+            <img src="/static/images/social/facebook.svg"/>
+        </a>
+        <a href="https://weibo.com/u/5340553087" target="_blank">
+            <img src="/static/images/social/weibo.svg"/>
+        </a>
+        <a href="https://groups.google.com/forum/#!forum/virtual-judge" target="_blank">
+            <img src="/static/images/social/google_bookmark.svg"/>
+        </a>
+        <a href="https://twitter.com/virtualjudge" target="_blank">
+            <img src="/static/images/social/twitter.svg"/>
+        </a>
+        <a href="mailto:is.un@qq.com" target="_blank">
+            <img src="/static/images/social/email.svg"/>
+        </a>
+    </div>
+    All Copyright Reserved ©2018 <a href="mailto:is.un@qq.com">Xu Han</a><br/>
+    Server Time: <span class="currentTimeTZ"></span>
+</div>
+
+<input name="version" type="hidden" value="1526019110375"/>
+
+    <input id="visitor_username" name="username" type="hidden" value="thirtiseven"/>
+    <input id="visitor_userId" name="userId" type="hidden" value="178266"/>
+    <input id="visitor_sup" name="sup" type="hidden" value="0"/>
+    <input id="newMessage" name="newMessage" type="hidden" value="false"/>
+
+
+<span id="img-support" title="Feedback"></span>
+<script type="text/javascript">basePath = "";</script>
+<script type="text/javascript">imagesRoot = "/static/images";</script>
+<script src="/static/bundle/loader.d41d8cd98f00b204e980.js?1526019110375"></script>
+<script src="/static/bundle/vendor.aded91a27e80a7a353f4.js"></script>
+<script src="/static/bundle/app.4dd1d922312fb8641a4c.js"></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-13231844-2', 'auto');
+  
+  ga('set', 'userId', 'thirtiseven');
+  
+  ga('send', 'pageview');
+</script>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</body>
+</html>

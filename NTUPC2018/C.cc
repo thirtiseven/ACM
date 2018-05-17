@@ -42,5 +42,4 @@ int main(int argc, char *argv[]) {
 		}
 		std::cout << maxx + 1 << std::endl;
 	}
-	return 0;
 }

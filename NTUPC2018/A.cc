@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+
 const int maxn = 100000+7;
 const int INF = 1e9;
 int n, w, len, c[maxn];
