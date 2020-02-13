@@ -1,2 +1,0 @@
-Given sequence of diamonds with mass/clarity, find the longest
-increasing subsequence.  Simple DP.

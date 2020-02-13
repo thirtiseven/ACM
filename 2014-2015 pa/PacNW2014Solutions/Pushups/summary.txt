@@ -1,3 +1,0 @@
-Find the score of a football game given the number of pushups
-that mascots did.  DP.  SER
-

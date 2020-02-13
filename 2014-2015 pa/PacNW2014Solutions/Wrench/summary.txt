@@ -1,3 +1,0 @@
-Given a decimal value; find the smallest fractional power-of-two
-that might print as that decimal.  Brute force.
-

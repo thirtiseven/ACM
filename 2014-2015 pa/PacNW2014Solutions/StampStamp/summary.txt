@@ -1,3 +1,0 @@
-Given a large 2D bitmap representing a smaller bitmap
-or'ed with itself with translation, find the minimum
-number of bits in the smaller bitmap.  SER

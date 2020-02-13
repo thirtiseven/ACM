@@ -1,2 +1,0 @@
-N-queens only for knights and with a narrow long board.  Bitmap
-DP but some implementation challenges. SER
